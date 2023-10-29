@@ -1,14 +1,14 @@
 {
     "builds": [
         {
-            "src": "iot.py",
+            "src": "iot/iot.py",
             "use":"@vercel/python"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "iot.py"
+            "dest": "iot/iot.py"
         }
     ]
 }
