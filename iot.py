@@ -18,11 +18,14 @@ client = MongoClient(connection_string)
 db = client.users_db
 collection = db.users_collection
 
+
+    
 def register_user():
     # Hash the password before storing it in the database
     data = request.get_json()
     phoneno= data["phoneNumber"]
     user_data = data
+    
     # Check if the user already exists
     existing_user = collection.find_one({"phoneNumber": phoneno})
     if existing_user:
@@ -72,7 +75,10 @@ def logout():
     session.pop("username", None)
     return redirect(url_for("home"))
 
-
+@app.route("/home")
+def home():
+    print("HELO")
+    return "ok"
 
 
 
