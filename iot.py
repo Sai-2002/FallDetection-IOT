@@ -33,20 +33,21 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        phone_no = request.form['phone_no']
-        name = request.form['name']
-        g_name = request.form['g_name']
-        g_no = request.form['g_no']
-        n_name = request.form['n_name']
-        n_no = request.form['n_no']
-        h_type = request.form['h_type']
-        h_name = request.form['h_name']
-        password = request.form['password']
-        h_no = request.form['password']
-        age = request.form['age']
-        weight = request.form['weight']
-        height = request.form['height']
-        gender = request.form['gender']
+        data = request.get_json()
+        phone_no = data['phone_no']
+        name = data['name']
+        g_name = data['g_name']
+        g_no = data['g_no']
+        n_name = data['n_name']
+        n_no = data['n_no']
+        h_type = data['h_type']
+        h_name = data['h_name']
+        password = data['password']
+        h_no = data['password']
+        age = data['age']
+        weight = data['weight']
+        height = data['height']
+        gender = data['gender']
         existing_user = User.query.filter_by(phone_no=phone_no).first()
         if existing_user:
             return "invalid"
@@ -64,8 +65,9 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        phone_no = request.form['phone_no']
-        password = request.form['password']
+        data = request.get_json()
+        phone_no = data['phone_no']
+        password = data['password']
 
         user = User.query.filter_by(phone_no=phone_no).first()
 
