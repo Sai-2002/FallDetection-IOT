@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "iot.py",
+            "use":"@vercelpython"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "iot.py"
+        }
+    ]
+}
