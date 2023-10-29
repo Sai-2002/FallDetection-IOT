@@ -2,7 +2,7 @@
     "builds": [
         {
             "src": "iot.py",
-            "use":"@vercelpython"
+            "use":"@vercel/python"
         }
     ],
     "routes": [
